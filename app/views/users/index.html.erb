@@ -1,0 +1,18 @@
+<div class="flex justify-between items-center">
+  <h3>Users</h3>
+  <%= link_to "New user", new_user_path, class:"btn-primary" %>
+</div>
+
+<div id="users">
+  <div class="grid grid-cols-3 p-1 bg-gray-200 mb-1">
+    <strong> Name </strong>
+    <strong> DOB </strong>
+    <strong> Points </strong>
+  </div>
+
+  <div class="grid gap-1">
+    <%= render @users %>
+  </div>
+
+</div>
+<br>

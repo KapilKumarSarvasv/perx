@@ -42,6 +42,12 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# data-generation and helper libraries
+#
+gem 'factory_bot_rails'
+gem 'faker'
+
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -69,4 +75,18 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  gem 'simplecov', require: false
+  gem 'simplecov-lcov', github: 'ramonrails/simplecov-lcov', require: false
+  gem 'rspec-rails'
+
+  #  continuous testing
+  #
+  gem 'guard'
+  gem 'guard-bundler'
+  gem 'guard-cucumber'
+  gem 'guard-migrate'
+  gem 'guard-rspec'
 end
+
+gem "tailwindcss-rails", "~> 2.0"

@@ -1,0 +1,28 @@
+<div class="flex justify-between">
+  <%= link_to "< Back", users_path, class:"btn-secondary" %>
+  <%= link_to "Edit this user", edit_user_path(@user), class:"btn-secondary" %>
+</div>
+
+<div class="grid grid-cols-3 p-1 bg-gray-200 my-1">
+  <strong> Name </strong>
+  <strong> DOB </strong>
+  <strong> Points </strong>
+</div>
+
+<%= render @user %>
+
+<br><br><br>
+<hr>
+<br>
+
+<div class="flex justify-between items-center">
+  <h3> Products </h3>
+  <%= link_to "Add new product", new_user_product_path(@user), class:"btn-secondary" %>
+</div>
+
+
+<div class="grid gap-1">
+  <% @user.products.each do |product| %>
+    <%= render 'products/product', product: product %>
+  <% end %>
+</div>

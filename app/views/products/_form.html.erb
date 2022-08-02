@@ -1,0 +1,35 @@
+<%= form_with(model: [@user, @product], class: "contents") do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h3><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h3>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= form.hidden_field :user_id, value: @user&.id %>
+  
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :country %>
+    <%= form.select(:country, Product::COUNTRY.invert.each {|key, value| [key, value]} ,{ }, class:"w-full py-2 rounded") %> 
+
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "btn-primary" %>
+  </div>
+<% end %>

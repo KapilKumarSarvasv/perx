@@ -1,0 +1,9 @@
+<%= link_to user do %>
+  <div id="<%= dom_id user %>" class="inline-grid w-full grid-cols-3 p-1 bg-gray-100 rounded hover:bg-gray-200">
+    <p> <%= user.name %> </p>
+
+    <p> <%= user.dob.strftime("%d %b %Y") %> </p>
+
+    <p> <%= user.update_points %> </p>
+  </div>
+<% end %>

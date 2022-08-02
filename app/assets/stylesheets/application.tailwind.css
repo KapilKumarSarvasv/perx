@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-6xl font-bold;
+  }
+  h2 {
+    @apply text-5xl font-bold;
+  }
+  h3 {
+    @apply text-4xl font-bold;
+  }
+
+  label {
+    @apply mt-4 mb-1;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="datetime-local"] {
+    @apply w-full rounded border py-1 px-2;
+  }
+
+  .btn-primary {
+    @apply rounded border py-0.5 px-2 cursor-pointer bg-sky-300 hover:bg-sky-500 hover:text-white;
+  }
+
+  .btn-secondary {
+    @apply rounded border-2 text-sky-500 py-0.5 px-2 cursor-pointer border-sky-300 hover:bg-sky-500 hover:text-white;
+  }
+
+  .btn-tertiary {
+    @apply rounded text-sky-500 py-0.5 border-2 border-white px-2 cursor-pointer hover:border-2 hover:border-sky-300 underline;
+  }
+}

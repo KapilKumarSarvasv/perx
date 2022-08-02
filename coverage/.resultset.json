@@ -1,0 +1,84 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/user/Desktop/Home/Test/perx-test/loyalty-program/app/models/user.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          6,
+          6,
+          null,
+          5,
+          5,
+          null,
+          4,
+          null,
+          4,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/user/Desktop/Home/Test/perx-test/loyalty-program/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/user/Desktop/Home/Test/perx-test/loyalty-program/app/models/product.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1659421245
+  }
+}

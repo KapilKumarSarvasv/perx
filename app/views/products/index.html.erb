@@ -1,0 +1,16 @@
+<div class="w-full">
+  <div class="flex justify-between items-center">
+    <h3>Products</h3>
+    <%= link_to 'New product', new_user_product_path, class: "btn-primary" %>
+  </div>
+
+  <div id="products" class="min-w-full">
+    <div class="grid grid-cols-3 p-1 bg-gray-200 mb-1">
+      <strong> Name </strong>
+      <strong> Amount </strong>
+      <strong> Country </strong>
+    </div>
+
+      <%= render @products %>
+  </div>
+</div>
