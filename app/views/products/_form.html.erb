@@ -13,20 +13,19 @@
   
   <%= form.hidden_field :user_id, value: @user&.id %>
   
-  <div class="my-5">
+  <div class="my-2">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="my-5">
+  <div class="my-2">
     <%= form.label :amount %>
     <%= form.text_field :amount %>
   </div>
 
-  <div class="my-5">
+  <div class="my-2">
     <%= form.label :country %>
     <%= form.select(:country, Product::COUNTRY.invert.each {|key, value| [key, value]} ,{ }, class:"w-full py-2 rounded") %> 
-
   </div>
 
   <div class="inline">

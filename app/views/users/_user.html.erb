@@ -1,5 +1,5 @@
 <%= link_to user do %>
-  <div id="<%= dom_id user %>" class="inline-grid w-full grid-cols-3 p-1 bg-gray-100 rounded hover:bg-gray-200">
+  <div class="inline-grid w-full grid-cols-3 p-2 rounded <%= user.update_points >= 5000 ? 'border-2 border-cyan-300 bg-cyan-100' : (1000..4999).include?(user.update_points) ? 'border-2 border-amber-300 bg-amber-100' : 'border-2 border-stone-300 bg-stone-100' %> ">
     <p> <%= user.name %> </p>
 
     <p> <%= user.dob.strftime("%d %b %Y") %> </p>

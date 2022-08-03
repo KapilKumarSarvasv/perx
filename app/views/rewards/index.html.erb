@@ -1,0 +1,10 @@
+<div class="w-full">
+  <div class="flex justify-between items-center">
+    <h3>Rewards</h3>
+    <%= link_to 'New reward', new_user_reward_path(@user), class: "btn-primary" %>
+  </div>
+
+  <div id="rewards" class="min-w-full">
+    <%= render @rewards %>
+  </div>
+</div>

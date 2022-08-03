@@ -12,7 +12,9 @@
   h3 {
     @apply text-4xl font-bold;
   }
-
+  h4 {
+    @apply text-xl font-bold;
+  }
   label {
     @apply mt-4 mb-1;
   }

@@ -1,28 +1,62 @@
-<div class="flex justify-between">
+<div class="flex justify-between my-1">
   <%= link_to "< Back", users_path, class:"btn-secondary" %>
   <%= link_to "Edit this user", edit_user_path(@user), class:"btn-secondary" %>
 </div>
 
-<div class="grid grid-cols-3 p-1 bg-gray-200 my-1">
-  <strong> Name </strong>
-  <strong> DOB </strong>
-  <strong> Points </strong>
+<%#= render @user %>
+<div class="grid grid-flow-col rounded p-2 <%= @user.update_points >= 5000 ? 'border-2 border-cyan-300 bg-cyan-100 ' : (1000..4999).include?(@user.update_points) ? 'border-2 border-amber-300 bg-amber-100 ' : 'border-2 border-stone-300 bg-stone-100' %> ">
+  <div>
+    <h3> <%= @user.name %> </h3>
+    <p> <%= @user.dob.strftime("%d %b %Y") %> </p>
+    <h3> <%= @user.update_points >= 5000 ? User::TIER[:platinum] : (1000..4999).include?(@user.update_points) ? User::TIER[:gold] : User::TIER[:standard] %> </h3>
+  </div>
+  <div class="md:flex justify-between lg:w-2/3">
+    <div> <p> Points </p> <h4> <%= @user.update_points %> </h4>  </div>
+    <div> <p> Transations </p> <h4> <%= @user.products.this_year.count %> </h4>  </div>
+    <div> <p> Rewards </p> <h4> <%= @user.rewards.this_year.count %> </h4> </div>
+  </div>
 </div>
 
-<%= render @user %>
 
 <br><br><br>
 <hr>
 <br>
 
-<div class="flex justify-between items-center">
-  <h3> Products </h3>
-  <%= link_to "Add new product", new_user_product_path(@user), class:"btn-secondary" %>
-</div>
+
+<div class="grid lg:grid-cols-3 gap-8">
+  <div class=" <%= @user.rewards.this_year.present? ? 'lg:col-span-2' : 'lg:col-span-3' %> ">
+    <div class="flex justify-between items-center">
+      <h3> Products </h3>
+      <%= link_to "Add new product", new_user_product_path(@user), class:"btn-secondary" %>
+    </div>
 
 
-<div class="grid gap-1">
-  <% @user.products.each do |product| %>
-    <%= render 'products/product', product: product %>
-  <% end %>
+    <div class="grid gap-1">
+      <div class="grid grid-cols-3 p-2 bg-gray-200 my-1">
+        <strong> Name </strong>
+        <strong> Amount Spend </strong>
+        <strong> Country </strong>
+      </div>
+      <div class=" <%= @user.products.this_year.count > 7 ? 'lg:h-80 overflow-y-scroll' : '' %> ">
+        <% @user.products.this_year.each do |product| %>
+          <%= render 'products/product', product: product %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="lg:col-span-1">
+    <% if @user.rewards.this_year.present? %>
+      <h3> Rewards </h3>
+
+      <div class="grid gap-1">
+        <div class="p-2 bg-gray-200 my-1">
+          <strong> Reward Name </strong>
+        </div>
+        <% @user.rewards.this_year.each do |reward| %>
+          <%= render 'rewards/reward', reward: reward %>
+        <% end  %>
+      </div>
+    <% end %>
+  </div>
 </div>
